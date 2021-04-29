@@ -28,7 +28,7 @@ namespace Ef3
                 int blogCount = OutputAllBlogs(db);
 
                 Console.WriteLine("Records: " + blogCount);
-                //
+                
                 // // Update
                 // Console.WriteLine("Updating the blog and adding a post");
                 // blog.Url = "https://devblogs.microsoft.com/dotnet";
