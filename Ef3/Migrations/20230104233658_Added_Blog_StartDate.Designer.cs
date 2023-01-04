@@ -3,6 +3,7 @@ using System;
 using Ef3;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ef3.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    partial class BloggingContextModelSnapshot : ModelSnapshot
+    [Migration("20230104233658_Added_Blog_StartDate")]
+    partial class AddedBlogStartDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.1");

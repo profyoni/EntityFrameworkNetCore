@@ -34,6 +34,7 @@ namespace Ef3
 
         [MaxLength(SystemConst.MaxStringLengthInDb)]
         public string Url { get; set; }
+        public DateTime StartDate { get; set; }
 
         // Navigation Property - Not a db field
         public List<Post> Posts { get; } = new List<Post>();
@@ -41,7 +42,7 @@ namespace Ef3
         public override string ToString()
         {
             return $"BlogId={BlogId}, " +
-                   $"Title=\"{Title.Length}\"" + Environment.NewLine +
+                   $"Title=\"{Title}\"" + Environment.NewLine +
                    $"Log=\"{Log?.Length}\"" + Environment.NewLine +
                    $"Url =\"{Url}\"" + Environment.NewLine +
                    string.Join("\n", Posts);

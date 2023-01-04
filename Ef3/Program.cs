@@ -18,16 +18,32 @@ namespace Ef3
                 Console.WriteLine("Inserting a new blog");
                 var blog = new Blog
                 {
-                    Title = BigString(),
-                    Url = "http://blogs.msdn.com/adonet",
-                    Log = BigString()
+                    Title = "Carrot Sticks & Celery Cholent",
+                    Url = "http://jewishvegan.com",
+                    Log = "",                    
                 };
+                blog.Posts.Add(new Post
+                {
+                    Title = "Cholent Reinvented",
+                    Content = "blah blah"
+                });
+                blog.Posts.Add(new Post
+                {
+                    Title = "Cholent Lost",
+                    Content = "blah blah"
+                });
+                Console.WriteLine(blog);
+                Console.WriteLine(db.Posts.Count());
+
                 db.Add(blog);
                 db.SaveChanges();
+                Console.WriteLine(blog);
 
-                int blogCount = OutputAllBlogs(db);
+                //int blogCount = OutputAllBlogs(db);
 
-                Console.WriteLine("Records: " + blogCount);
+                Console.WriteLine(db.Posts.Count());
+
+                //Console.WriteLine("Records: " + blogCount);
                 
                 // // Update
                 // Console.WriteLine("Updating the blog and adding a post");
@@ -53,7 +69,7 @@ namespace Ef3
 
         private static int OutputAllBlogs(BloggingContext db)
         {
-            // Read
+            // Read = SELECT * FROM Blogs WHERE CONTAINS(Url,'http') ORDEDR BY BlogID
             Console.WriteLine("Querying for a blog");
             var blogs = db.Blogs
                 .Include(b => b.Posts)

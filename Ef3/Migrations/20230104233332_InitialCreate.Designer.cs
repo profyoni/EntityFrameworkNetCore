@@ -5,17 +5,19 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace Ef3.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20210428230456_InitialCreate")]
+    [Migration("20230104233332_InitialCreate")]
     partial class InitialCreate
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
 
             modelBuilder.Entity("Ef3.Blog", b =>
                 {
